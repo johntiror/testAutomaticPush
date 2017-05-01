@@ -10,9 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = view.bounds.size
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        let fsPicVC = CollectionViewController(collectionViewLayout: layout)
+        //fsPicVC.currentIndex = dataSource.index(of: image)
+        self.present(fsPicVC, animated: true) { }
     }
 
     override func didReceiveMemoryWarning() {
